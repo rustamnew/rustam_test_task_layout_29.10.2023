@@ -29,6 +29,7 @@ h1, h2, h3, h4, h5 {
 }
 
 a {
+    transition: 0.3s;
     text-decoration: none;
 }
 
@@ -120,11 +121,6 @@ a:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*background-image: url(./icons/hexagon.svg);
-
-    background-size: 103%;
-    background-repeat: no-repeat;
-    background-position: center center;*/
     position: relative;
 }
 .swiper .swiper-slide .slide-inner .place {
@@ -282,6 +278,9 @@ a:hover {
 .header .buttons {
     display: flex;
 }
+.header .buttons .header-button.login svg {
+    transition: 0.3s;
+}
 .header .buttons .header-button.login:hover svg {
     fill: orange;
 }
@@ -300,6 +299,9 @@ a:hover {
 .header .buttons .side-open {
     height: 2rem;
     width: 2rem;
+}
+.header .buttons .side-open path {
+    transition: 0.3s;
 }
 .header .buttons .side-open:hover path {
     stroke: orange;

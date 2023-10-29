@@ -29,6 +29,7 @@ h1, h2, h3, h4, h5 {
 }
 
 a {  
+    transition: 0.3s;
     text-decoration: none; 
 }
 a:visited {
@@ -352,6 +353,9 @@ a:hover {
     .buttons {
         display: flex;
 
+        .header-button.login svg{
+            transition: 0.3s;
+        }
         .header-button.login:hover svg{
             fill: orange;
         }
@@ -371,7 +375,9 @@ a:hover {
         }
 
         .side-open {
-
+            path {
+                transition: 0.3s;
+            }
             &:hover path{
                 stroke: orange;
             }
