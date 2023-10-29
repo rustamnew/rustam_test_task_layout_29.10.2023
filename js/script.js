@@ -128,7 +128,6 @@ function createSlidesLayout(slides_obj) {
         let slide_obj = slides_obj[item]
 
         let slide_element = document.createElement('div')
-        //slide_element.classList.add('item-hexagon')
         slide_element.classList.add('swiper-slide')
 
         let slide_inner = document.createElement('div')
@@ -158,24 +157,13 @@ function createSlidesLayout(slides_obj) {
         //buy_link.setAttribute('target', '_blank')
         buy_link.innerHTML = 'Купить билет'
 
-        /*let left = document.createElement('div')
-        left.classList.add('left')
-        left.innerHTML = slide_obj.left
-
-        let right = document.createElement('div')
-        right.classList.add('right')
-        right.innerHTML = slide_obj.right*/
-
         slide_inner.append(place)
         slide_inner.append(date)
         slide_inner.append(time)
         slide_inner.append(buy_link)
-        /*slide_inner.append(left)
-        slide_inner.append(right)*/
 
         slide_inner.setAttribute('data-before', slide_obj.left)
         slide_inner.setAttribute('data-after', slide_obj.right)
-
 
         slide_element.append(slider_left)
         slide_element.append(slide_inner)
