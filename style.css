@@ -40,30 +40,10 @@ a:hover {
     color: orange;
 }
 
-.container {
-    width: 1200px;
-    margin: 0 auto;
-}
-
 .button {
     display: inline-flex;
 }
 
-.swiper {
-    padding-top: 100px;
-    padding-bottom: 100px;
-    margin-top: 40px;
-    position: relative;
-}
-.swiper .swiper-slide {
-    display: flex;
-    justify-content: center;
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-.swiper .swiper-slide img {
-    max-width: 200px;
-    max-height: 200px;
-}
 .swiper .swiper-slide-active {
     transform: translateY(0) scale(1.75);
 }
@@ -97,25 +77,57 @@ a:hover {
 .swiper {
     overflow: unset;
     overflow-y: visible;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    margin-top: 40px;
+    position: relative;
 }
-.swiper .slide-inner {
-    background-color: transparent;
+.swiper .slider_buttons {
+    display: none;
+}
+.swiper .swiper-slide {
+    display: flex;
+    justify-content: center;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.swiper .swiper-slide img {
+    max-width: 200px;
+    max-height: 200px;
+}
+.swiper .swiper-slide .slide_left {
+    height: 200px;
+    width: 100px;
+    flex-shrink: 0;
+    clip-path: polygon(40% 50%, 100% 100%, 100% 0);
+    background-color: #fff;
+    margin-right: -1px;
+}
+.swiper .swiper-slide .slide_right {
+    height: 200px;
+    width: 100px;
+    flex-shrink: 0;
+    clip-path: polygon(60% 50%, 0 100%, 0 0);
+    background-color: #fff;
+    margin-left: -1px;
+}
+.swiper .swiper-slide .slide-inner {
+    background-color: #fff;
     color: #020317;
     font-size: 1rem;
     height: 200px;
-    width: 200px;
+    width: 100px;
     padding: 10%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    filter: url("#goo");
-    background-image: url(./icons/hexagon.svg);
+    /*background-image: url(./icons/hexagon.svg);
+
     background-size: 103%;
     background-repeat: no-repeat;
-    background-position: center center;
+    background-position: center center;*/
     position: relative;
 }
-.swiper .slide-inner .place {
+.swiper .swiper-slide .slide-inner .place {
     padding-top: 10px;
     font-size: 1rem;
     margin-bottom: 10px;
@@ -123,7 +135,7 @@ a:hover {
     opacity: 0;
     visibility: hidden;
 }
-.swiper .slide-inner .date {
+.swiper .swiper-slide .slide-inner .date {
     font-size: 1.6rem;
     font-weight: bold;
     margin-bottom: 6px;
@@ -133,13 +145,13 @@ a:hover {
     display: flex;
     justify-content: center;
 }
-.swiper .slide-inner .time {
+.swiper .swiper-slide .slide-inner .time {
     margin-bottom: 10px;
     transition: opacity 0.1s;
     opacity: 0;
     visibility: hidden;
 }
-.swiper .slide-inner .buy_link {
+.swiper .swiper-slide .slide-inner .buy_link {
     border: 1px solid #020317;
     display: inline-flex;
     padding: 4px 10px 5px;
@@ -151,59 +163,51 @@ a:hover {
     opacity: 0;
     visibility: hidden;
 }
+.swiper .swiper-slide .slide-inner .buy_link:hover {
+    color: #fff;
+    background-color: #020317;
+}
 .swiper .swiper-slide-active {
     position: relative;
-    /*.slide-inner::before {
-        content: attr(data-before);
-        background-color: #fff;
-        position: absolute;
-        right: 100%;
-        top: 0;
-        bottom: 50%;
-        left: -200%;
-        display: flex;
-        justify-content: flex-end;
-    }
-
-    .slide-inner::after {
-        content: attr(data-after);
-        background-color: #fff;
-        position: absolute;
-        left: 100%;
-        top: 50%;
-        bottom: 0;
-        right: -200%;
-        display: flex;
-        justify-content: flex-start;
-    }*/
 }
-.swiper .swiper-slide-active .place {
+.swiper .swiper-slide-active .slide-inner .place {
     opacity: 1;
     visibility: visible;
 }
-.swiper .swiper-slide-active .date {
-    width: 100%;
+.swiper .swiper-slide-active .slide-inner .date {
+    width: 250%;
+    overflow-x: visible;
 }
-.swiper .swiper-slide-active .time {
+.swiper .swiper-slide-active .slide-inner .time {
     opacity: 1;
     visibility: visible;
 }
-.swiper .swiper-slide-active .buy_link {
+.swiper .swiper-slide-active .slide-inner .buy_link {
     opacity: 1;
     visibility: visible;
+    white-space: nowrap;
 }
 .swiper .side-info-blocks .left {
     background-color: #fff;
     position: absolute;
     left: -100%;
-    top: 10%;
-    right: 65%;
+    top: 6%;
+    right: 69%;
     bottom: 50%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    padding-right: 120px;
-    clip-path: polygon(0 0, 100% 0, 94.5% 100%, 0% 100%);
+    padding-right: 26px;
+}
+.swiper .side-info-blocks .left::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 101px;
+    right: -100px;
+    background-color: #fff;
+    clip-path: polygon(0 100%, 0 0, 100% 0);
 }
 .swiper .side-info-blocks .left span {
     color: #020317;
@@ -212,14 +216,23 @@ a:hover {
 .swiper .side-info-blocks .right {
     background-color: #fff;
     position: absolute;
-    left: 65%;
+    left: 69%;
     top: 50%;
     right: -100%;
-    bottom: 10%;
+    bottom: 6%;
     display: flex;
     align-items: center;
-    padding-left: 120px;
-    clip-path: polygon(5.5% 0, 100% 0, 100% 100%, 0 100%);
+    padding-left: 26px;
+}
+.swiper .side-info-blocks .right::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 101px;
+    left: -100px;
+    background-color: #fff;
+    clip-path: polygon(100% 100%, 0 100%, 100% 0);
 }
 .swiper .side-info-blocks .right span {
     color: #020317;
@@ -261,7 +274,7 @@ a:hover {
 }
 .header .navigation .list .item {
     font-size: 2rem;
-    margin-right: 6rem;
+    margin-right: 3rem;
 }
 .header .navigation .list .item:last-child {
     margin-right: 0;
@@ -304,16 +317,6 @@ a:hover {
     justify-content: center;
     align-items: center;
     transform: translate(0);
-    /*.circle-gradient {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-
-        border-radius: 50%;
-        height: 100vmin;
-        width: 100vmin;
-        background: radial-gradient(#4F507C, #020923);
-    }*/
 }
 .page-background .circle1 {
     position: absolute;
@@ -328,6 +331,101 @@ a:hover {
     background: radial-gradient(circle, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 35%, #383F5B 35.3%, rgba(0, 0, 0, 0) 35.6%);
 }
 
+@media screen and (max-width: 1100px) {
+    .header .navigation .list {
+        display: none;
+    }
+    .header .buttons .login {
+        display: none;
+    }
+
+    .swiper .side-info-blocks .left {
+        right: 72%;
+    }
+    .swiper .side-info-blocks .right {
+        left: 72%;
+    }
+}
+@media screen and (max-width: 875px) {
+    .swiper .swiper-slide-next,
+.swiper .swiper-slide-duplicate-next {
+        transform: translateY(-77%) translateX(0px);
+    }
+    .swiper .swiper-slide-prev,
+.swiper .swiper-slide-duplicate-prev {
+        transform: translateY(70%) translateX(0px);
+    }
+    .swiper .swiper-slide .slide_left {
+        height: 150px;
+        width: 60px;
+    }
+    .swiper .swiper-slide .slide_right {
+        height: 150px;
+        width: 60px;
+    }
+    .swiper .swiper-slide .slide-inner {
+        height: 150px;
+        padding: 3%;
+    }
+    .swiper .swiper-slide .slide-inner .place {
+        padding-top: 0;
+    }
+    .swiper .side-info-blocks .left {
+        right: 77%;
+        padding-right: 0;
+    }
+    .swiper .side-info-blocks .left::before {
+        clip-path: polygon(40% 0, 0 100%, 0 0);
+    }
+    .swiper .side-info-blocks .right {
+        left: 77%;
+        padding-left: 0;
+    }
+    .swiper .side-info-blocks .right::before {
+        clip-path: polygon(100% 100%, 39% 100%, 100% 0);
+    }
+}
+@media screen and (max-width: 640px) {
+    .swiper .side-info-blocks .left {
+        right: 67%;
+        top: -34%;
+        bottom: 100%;
+    }
+    .swiper .side-info-blocks .right {
+        left: 67%;
+        top: 100%;
+        bottom: -34%;
+    }
+    .swiper .slider_buttons {
+        display: flex;
+        justify-content: center;
+        position: fixed;
+        bottom: 1%;
+        left: 0;
+        right: 0;
+    }
+    .swiper .slider_buttons button {
+        margin-right: 30%;
+        width: 5rem;
+        height: 5rem;
+        border: 1px solid #fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        color: #fff;
+        font-size: 4rem;
+        cursor: pointer;
+        padding-bottom: 10px;
+    }
+    .swiper .slider_buttons button:hover {
+        color: orange;
+    }
+    .swiper .slider_buttons button:last-child {
+        margin-right: 0;
+    }
+}
 @font-face {
     font-family: "Steelfish";
     src: url("./fonts/steelfish/SteelfishRg-Regular.woff2") format("woff2"), url("/fonts/steelfish/SteelfishRg-Regular.woff") format("woff");

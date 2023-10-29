@@ -54,6 +54,27 @@ let swiper_options = {
     slideToClickedSlide: true,
     addSlidesAfter: 1,
     addSlidesBefore: 1,
+    allowTouchMove: false,
+
+    navigation: {
+        prevEl: '.button-prev',
+        nextEl: '.button-next'
+    },
+
+    breakpoints: {
+        0: {
+          slidesPerView: 1,
+          //spaceBetween: 20
+        },
+        640: {
+          slidesPerView: 3,
+          spaceBetween: 40
+        },
+        900: {
+            slidesPerView: 5,
+            spaceBetween: 30
+        },
+    },
 
     /*virtual: { //Не использую виртуальные слайды, т.к. не совсем подходят под требования по задаче
         slides: (function() {
@@ -113,6 +134,12 @@ function createSlidesLayout(slides_obj) {
         let slide_inner = document.createElement('div')
         slide_inner.classList.add('slide-inner')
 
+        let slider_left = document.createElement('div')
+        slider_left.classList.add('slide_left')
+
+        let slider_right = document.createElement('div')
+        slider_right.classList.add('slide_right')
+
         let place = document.createElement('div')
         place.classList.add('place')
         place.innerHTML = slide_obj.place
@@ -149,7 +176,10 @@ function createSlidesLayout(slides_obj) {
         slide_inner.setAttribute('data-before', slide_obj.left)
         slide_inner.setAttribute('data-after', slide_obj.right)
 
+
+        slide_element.append(slider_left)
         slide_element.append(slide_inner)
+        slide_element.append(slider_right)
 
         list.append(slide_element)
     }
