@@ -64,6 +64,7 @@ let swiper_options = {
     breakpoints: {
         0: {
           slidesPerView: 1,
+          allowTouchMove: true,
           //spaceBetween: 20
         },
         640: {

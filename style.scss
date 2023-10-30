@@ -307,7 +307,7 @@ a:hover {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding-top: 190px;
+            padding-top: 20vh;
             //overflow: hidden;
         }
     }
@@ -555,6 +555,27 @@ a:hover {
                 }
             }
         }
+    }
+    
+
+}
+@media screen and (max-width: 460px) {
+    .swiper {
+        .side-info-blocks {
+            .left {
+                right: 50%;
+                top: -15%;
+                bottom: 95%;
+
+            }
+            .right {
+                left: 50%;
+                bottom: -15%;
+                top: 95%;
+
+            }
+        }
+ 
     }
     
 
